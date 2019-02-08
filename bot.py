@@ -63,7 +63,7 @@ def echo(bot, update):
 
 	with open('playlist.txt') as f:
 		for line in f.readlines():
-			print(line+"hiidhfgidufhigdufhgidufhiuh")
+			print(line)
 			botmessage+=line+"\n"
 	bot.send_message(chat_id=update.message.chat_id, text=botmessage )
 	bot.send_message(chat_id=update.message.chat_id, text= "Looks like you love Justin Bieber. Might be a great idea to look into some real music!")
@@ -105,97 +105,4 @@ def playlistTransfer(bot, update):
 
 
 
-# #For image classification
-# def imagerec(bot, update):
-# 	url = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect"
-# 	querystring = {"returnFaceId":"true","returnFaceLandmarks":"false","returnFaceAttributes":"emotion,age,gender"}
-
-# 	image_path = "/Users/AkshayC/Desktop/test.jpg"
-# 	image_data = open(image_path, "rb").read()
-
-# 	headers = {
-# 		'Ocp-Apim-Subscription-Key': "9495f13ff2764d0f87daec1d820257e8",
-# 		'Content-Type': "application/octet-stream",
-# 		'cache-control': "no-cache",
-# 		'Postman-Token': "67ac9f11-e73a-430f-aca3-eb71b7dcc0a5"
-# 		}	
-
-# 	response = requests.request("POST", url, data=image_data, headers=headers, params=querystring)
-
-# 	age = int(response.json()[0]["faceAttributes"]["age"])
-# 	emotion = response.json()[0]["faceAttributes"]["emotion"]
-
-# 	maxint = -0.5
-
-# 	for key in emotion:
-# 		if (emotion[key] > maxint):
-# 			maxint = emotion[key]
-# 			emo = key
-	
-# 	#print(maxint)
-# 	print(emo)
-# 	#print(age)
-
-# 	print(bud)
-# 	classify(bot, update, emo, int(bud))
-
-
-# photo_handler = MessageHandler(Filters.photo, photo)
-# dispatcher.add_handler(photo_handler)
-
-# #For the Location
-# def location(bot, update):
-
-# 	locjson = str(str(update.message.location['latitude']) + "," + str(update.message.location['longitude']))
-# 	print(locjson)
-# 	#bot.sendMessage(chat_id=update.message.chat_id, text=str(update.message.location))
-# 	loc(bot, update, locjson)
-
-
-# location_handler = MessageHandler(Filters.location, location, edited_updates=True)
-# dispatcher.add_handler(location_handler)
-
-# #For getting the map link
-# def loc(bot, update, locations):
-
-# 	url_pubs = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
-# 	params_pubs = {'key' : 'AIzaSyA6zIAya7DpOz8KKAKTr65tw6LNI5ktKzE',
-# 	     'location' :  locations,
-# 	       'rankby' : 'distance',
-# 	        'type'  : 'pub',
-# 	     'keyword'  : 'pubs',
-# 	     'maxprice' : 3
-# 	         }
-# 	r = requests.get(url = url_pubs, params = params_pubs)
-
-# 	data = r.json()
-# 	restaurant_name = data['results'][0]['name']
-# 	lat = data['results'][0]['geometry']['location']['lat']
-# 	lng = data['results'][0]['geometry']['location']['lng']
-# 	map_url = "maps.google.com/?q="+str(lat)+','+str(lng)
-# 	maptext = "Your closest pub is " + restaurant_name + "\n" + map_url
-
-# 	bot.sendMessage(chat_id=update.message.chat_id, text=maptext)
-
-
-# def classify(bot, update, emo, bud):
-# 	with open("alcohols.json") as file:
-# 		alcohols = json.load(file)
-# 	emotion = emo
-# 	budget = bud
-
-# 	#HAPPINESS
-# 	if (emotion == "happiness"):
-# 		bot.sendMessage(chat_id=update.message.chat_id, text="You seem to be happy! :)")
-# 		happinessDrinkDict = {**alcohols['Red Wine'], **alcohols['Beers']}
-# 		lst = []
-# 		for drink in happinessDrinkDict.keys():
-# 			#print(float(happinessDrinkDict[drink]), float(budget))
-# 			if float(happinessDrinkDict[drink]) <= float(budget):
-# 				lst.append((drink,happinessDrinkDict[drink]))
-# 		#print(lst)
-# 		happyChoice = lst[random.randint(0,len(lst) - 1)]
-# 		finaltext = "Your recommended drink is " + happyChoice[0] + ". The cost of a standard drink is £" + happyChoice[1] + "."
-# 		bot.sendMessage(chat_id=update.message.chat_id, text=finaltext)
-# 		bot.sendMessage(chat_id=update.message.chat_id, text="Please send your location too!")
-
+ests.request("POST", url, data=image_data, headers=headers, params=querystring)
